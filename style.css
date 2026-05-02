@@ -12,12 +12,7 @@ body{
     width: 800px;
     height: 500px;
 }
-.bottom{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%)
-} 
+
 .h1{
     display: flex;
     justify-content: end;
@@ -30,6 +25,12 @@ body{
     color: #000;
     padding: 2px;;
     display: none;
+    top: 45%;
+    left: 45%;
+    position: absolute;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;    
 }
 .ball{
     position: relative;
