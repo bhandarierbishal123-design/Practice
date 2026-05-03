@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,5 +8,206 @@
 <body>
     <input type="text" name="text" id="text">
     <button onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(text.value))">Click me!</button>
+</body>
+</html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced UI Demo</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+  line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+}
+
+.hero h1 {
+  font-size: 50px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero p {
+  margin-top: 15px;
+  color: #cbd5e1;
+}
+
+.btn {
+  margin-top: 25px;
+  padding: 12px 25px;
+  border: none;
+  background: #38bdf8;
+  color: black;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===== GRID SECTION ===== */
+.section {
+  padding: 60px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: rgba(255,255,255,0.1);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: rgba(255,255,255,0.05);
+  margin-top: 40px;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <div class="logo">DevUI</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Modern Web Design</h1>
+    <p>Advanced HTML + CSS layout using Grid, Flexbox & animations</p>
+    <button class="btn">Get Started</button>
+  </div>
+</section>
+
+<!-- CARDS -->
+<section class="section">
+  <div class="grid">
+
+    <div class="card">
+      <h2>Flexbox</h2>
+      <p>Used for aligning items in one direction.</p>
+    </div>
+
+    <div class="card">
+      <h2>CSS Grid</h2>
+      <p>Perfect for full-page layouts and responsive systems.</p>
+    </div>
+
+    <div class="card">
+      <h2>Animations</h2>
+      <p>Make UI smooth and interactive using CSS transitions.</p>
+    </div>
+
+    <div class="card">
+      <h2>Responsive Design</h2>
+      <p>Works on mobile, tablet, and desktop screens.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 DevUI Project | Built with HTML & CSS</p>
+</footer>
+
 </body>
 </html>
