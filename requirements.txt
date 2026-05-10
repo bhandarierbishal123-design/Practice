@@ -1,0 +1,11 @@
+opencv-python
+numpy
+pyautogui
+pillow
+SpeechRecognition
+pyttsx3
+requests
+openai
+gTTS
+pygame
+PyAudio
