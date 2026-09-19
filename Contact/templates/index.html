@@ -1,0 +1,1914 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>conatct.com — Your people, your space</title>
+
+  <style nonce="{{ g.nonce }}">
+    :root {
+      --bg: #f3f5fb;
+      --card: #fff;
+      --ink: #18223b;
+      --muted: #6c7690;
+      --line: #e7eaf2;
+      --brand: #5b4bff;
+      --brand-soft: #efedff;
+      --danger: #bf3146;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.6 system-ui, sans-serif;
+    }
+
+    a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    .button {
+      border: 0;
+      border-radius: 12px;
+      background: var(--brand);
+      color: white;
+      padding: 10px 17px;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: 650;
+    }
+
+    button:hover,
+    .button:hover {
+      filter: brightness(.94);
+    }
+
+    button:disabled {
+      opacity: .55;
+      cursor: wait;
+    }
+
+    button.secondary {
+      background: var(--brand-soft);
+      color: var(--brand);
+    }
+
+    button.danger {
+      background: #fff0f2;
+      color: var(--danger);
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafbfe;
+      padding: 12px;
+      color: var(--ink);
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: 2px solid #c9c3ff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    label {
+      display: grid;
+      gap: 5px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      font-size: 21px;
+    }
+
+    small,
+    .muted {
+      color: var(--muted);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      padding: 15px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      color: var(--brand);
+      font-size: 27px;
+      font-weight: 850;
+      letter-spacing: -1.5px;
+    }
+
+    .logo span {
+      color: var(--ink);
+    }
+
+    .shell {
+      max-width: 1260px;
+      margin: 30px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 215px minmax(0, 700px) 210px;
+      gap: 25px;
+    }
+
+    .sidebar {
+      align-self: start;
+      position: sticky;
+      top: 100px;
+    }
+
+    .sidebar nav {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .sidebar nav a {
+      padding: 13px 15px;
+      border-radius: 13px;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      background: var(--brand-soft);
+      color: var(--brand);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 23px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 20px rgba(24,34,59,.04);
+    }
+
+    .hero {
+      background: linear-gradient(
+        120deg,
+        #5b4bff,
+        #8d69ec
+      );
+      color: white;
+      border: 0;
+    }
+
+    .hero p {
+      color: #eeeaff;
+      margin-bottom: 0;
+    }
+
+    .stack {
+      display: grid;
+      gap: 13px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .between {
+      justify-content: space-between;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .post-header {
+      margin-bottom: 17px;
+    }
+
+    .body-text {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .photo {
+      display: block;
+      width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      background: #f6f7fb;
+      border-radius: 14px;
+      margin-bottom: 16px;
+    }
+
+    .reel {
+      display: block;
+      width: 100%;
+      max-height: 72vh;
+      aspect-ratio: 9 / 16;
+      background: #101321;
+      border-radius: 15px;
+      margin-bottom: 16px;
+    }
+
+    .actions {
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 8px;
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 750;
+    }
+
+    .empty {
+      padding: 30px 15px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .auth {
+      max-width: 1030px;
+      padding: 70px 24px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .auth h1 {
+      font-size: clamp(38px, 5vw, 65px);
+      margin-top: 35px;
+    }
+
+    .auth .intro {
+      font-size: 19px;
+      color: var(--muted);
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .people {
+      display: flex;
+      overflow-x: auto;
+      gap: 9px;
+      padding: 14px 0;
+    }
+
+    .person {
+      min-width: 125px;
+      padding: 10px;
+      border-radius: 10px;
+      background: var(--brand-soft);
+    }
+
+    .person small {
+      display: block;
+    }
+
+    .chat-log {
+      height: 390px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px 0;
+    }
+
+    .bubble {
+      align-self: flex-start;
+      max-width: 84%;
+      padding: 11px 15px;
+      border-radius: 16px 16px 16px 3px;
+      background: #f0f2f8;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .bubble.mine {
+      align-self: flex-end;
+      color: white;
+      background: var(--brand);
+      border-radius: 16px 16px 3px 16px;
+    }
+
+    .bubble time {
+      display: block;
+      font-size: 10px;
+      opacity: .75;
+      margin-top: 5px;
+    }
+
+    .notice {
+      border-left: 4px solid var(--brand);
+    }
+
+    .rightbar {
+      align-self: start;
+    }
+
+    .rightbar .card {
+      padding: 18px;
+    }
+
+    .error-page {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    @media (max-width: 1120px) {
+      .shell {
+        grid-template-columns: 190px minmax(0, 1fr);
+      }
+
+      .rightbar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        display: block;
+        padding: 0 12px;
+        margin-top: 15px;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .sidebar nav {
+        display: flex;
+        overflow-x: auto;
+        margin-bottom: 15px;
+      }
+
+      .sidebar nav a {
+        white-space: nowrap;
+        padding: 10px;
+      }
+
+      .sidebar .profile {
+        display: none;
+      }
+
+      .auth {
+        grid-template-columns: 1fr;
+        padding-top: 20px;
+        gap: 20px;
+      }
+
+      .auth h1 {
+        margin-top: 10px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .topbar {
+        padding: 12px 16px;
+      }
+
+      .account-name {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+{% macro csrf() %}
+  <input
+    type="hidden"
+    name="csrf"
+    value="{{ session['csrf'] }}"
+  >
+{% endmacro %}
+
+
+{% macro composer(reel=false, space_id=none) %}
+<section class="card">
+
+  <h2>
+    {{ 'Share a reel' if reel else 'Share something good' }}
+  </h2>
+
+  <form
+    action="{{ url_for('create_post') }}"
+    method="post"
+    enctype="multipart/form-data"
+    class="stack"
+  >
+
+    {{ csrf() }}
+
+    <input
+      type="hidden"
+      name="kind"
+      value="{{ 'reel' if reel else 'post' }}"
+    >
+
+    {% if space_id %}
+      <input
+        type="hidden"
+        name="space_id"
+        value="{{ space_id }}"
+      >
+    {% endif %}
+
+    <textarea
+      name="body"
+      maxlength="5000"
+      aria-label="Post text"
+      placeholder="{{ 'Write a caption…' if reel else 'What’s on your mind?' }}"
+    ></textarea>
+
+    <label>
+      {{ 'Video · up to 90 seconds / 50 MB'
+         if reel
+         else 'Attach a photo (optional)' }}
+
+      <input
+        type="file"
+        name="media"
+        accept="{{ '.mp4,.webm'
+                  if reel
+                  else '.jpg,.jpeg,.png,.webp' }}"
+        {% if reel %}required{% endif %}
+      >
+    </label>
+
+    <div class="row between">
+
+      <small>
+        Visible to all signed-in users
+      </small>
+
+      <button type="submit">
+        {{ 'Publish reel' if reel else 'Publish post' }}
+      </button>
+
+    </div>
+
+  </form>
+</section>
+{% endmacro %}
+
+
+{% macro postcard(post) %}
+<article class="card">
+
+  <div class="row post-header">
+
+    <div class="avatar">
+      {% if post.space_name %}
+        {{ post.space_name[:1]|upper }}
+      {% else %}
+        {{ post.author_name[:1]|upper }}
+      {% endif %}
+    </div>
+
+    <div>
+
+      {% if post.space_kind == 'page' %}
+
+        <strong>
+          <a
+            href="{{ url_for(
+              'space_detail',
+              space_id=post.space_id
+            ) }}"
+          >
+            {{ post.space_name }}
+          </a>
+        </strong>
+
+        <small>
+          · by {{ post.author_name }}
+        </small>
+
+      {% else %}
+
+        <strong>
+          {{ post.author_name }}
+        </strong>
+
+        {% if post.space_name %}
+          <small>in</small>
+
+          <a
+            href="{{ url_for(
+              'space_detail',
+              space_id=post.space_id
+            ) }}"
+          >
+            {{ post.space_name }}
+          </a>
+        {% endif %}
+
+      {% endif %}
+
+      <div>
+        <small>
+          @{{ post.username }}
+          · {{ post.created }} UTC
+        </small>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  {% if post.body %}
+    <p class="body-text">
+      {{ post.body }}
+    </p>
+  {% endif %}
+
+
+  {% if post.media %}
+
+    {% if post.kind == 'reel' %}
+
+      <video
+        class="reel"
+        controls
+        playsinline
+        loop
+        preload="metadata"
+        src="{{ url_for(
+          'media',
+          filename=post.media
+        ) }}"
+      >
+        Your browser cannot play this video.
+      </video>
+
+    {% else %}
+
+      <img
+        class="photo"
+        loading="lazy"
+        alt="Photo shared by {{ post.author_name }}"
+        src="{{ url_for(
+          'media',
+          filename=post.media
+        ) }}"
+      >
+
+    {% endif %}
+
+  {% endif %}
+
+
+  <div class="row between actions">
+
+    <form
+      action="{{ url_for(
+        'like',
+        post_id=post.id
+      ) }}"
+      method="post"
+    >
+
+      {{ csrf() }}
+
+      <button class="secondary">
+        {{ '♥ Liked' if post.liked else '♡ Like' }}
+        · {{ post.like_count }}
+      </button>
+
+    </form>
+
+
+    {% if
+      g.user.id == post.author
+      or g.user.id == post.space_owner
+    %}
+
+      <form
+        action="{{ url_for(
+          'delete_post',
+          post_id=post.id
+        ) }}"
+        method="post"
+        data-confirm="Delete this post permanently?"
+      >
+
+        {{ csrf() }}
+
+        <button class="danger">
+          Delete
+        </button>
+
+      </form>
+
+    {% endif %}
+
+  </div>
+
+</article>
+{% endmacro %}
+
+
+<header class="topbar">
+
+  <a
+    class="logo"
+    href="{{ url_for('home') }}"
+  >
+    conatct<span>.com</span>
+  </a>
+
+
+  {% if g.user %}
+
+    <div class="row">
+
+      <span class="account-name">
+        {{ g.user.name }}
+      </span>
+
+      <form
+        action="{{ url_for('logout') }}"
+        method="post"
+      >
+
+        {{ csrf() }}
+
+        <button class="secondary">
+          Log out
+        </button>
+
+      </form>
+
+    </div>
+
+  {% else %}
+
+    <span class="muted">
+      Your people. Your space.
+    </span>
+
+  {% endif %}
+
+</header>
+
+
+{% if view == 'error' %}
+
+  <main class="error-page">
+
+    <section class="card">
+
+      <h1>
+        Something needs attention
+      </h1>
+
+      <p>
+        {{ error }}
+      </p>
+
+      <a
+        class="button"
+        href="{{ url_for('home') }}"
+      >
+        Return home
+      </a>
+
+    </section>
+
+  </main>
+
+
+{% elif view == 'auth' %}
+
+  <main class="auth">
+
+    <section>
+
+      <span class="badge">
+        Welcome to your next community
+      </span>
+
+      <h1>
+        Good conversations.
+        <br>
+        Real connections.
+      </h1>
+
+      <p class="intro">
+        Share your day, discover reels, message
+        your people, and build a community of your own.
+      </p>
+
+      <p class="muted">
+        An independent social network.
+        Not affiliated with Meta.
+      </p>
+
+    </section>
+
+
+    <section>
+
+      <div class="card">
+
+        <h2>
+          Welcome back
+        </h2>
+
+        <form
+          action="{{ url_for('auth') }}"
+          method="post"
+          class="stack"
+        >
+
+          {{ csrf() }}
+
+          <input
+            type="hidden"
+            name="mode"
+            value="login"
+          >
+
+          <label>
+            Username
+
+            <input
+              name="username"
+              required
+              minlength="3"
+              maxlength="30"
+              autocomplete="username"
+              pattern="[a-z0-9_]{3,30}"
+            >
+          </label>
+
+          <label>
+            Password
+
+            <input
+              name="password"
+              type="password"
+              required
+              minlength="12"
+              maxlength="128"
+              autocomplete="current-password"
+            >
+          </label>
+
+          <button>
+            Log in
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <details class="card">
+
+        <summary>
+          Create your account
+        </summary>
+
+        <form
+          action="{{ url_for('auth') }}"
+          method="post"
+          class="stack"
+        >
+
+          {{ csrf() }}
+
+          <input
+            type="hidden"
+            name="mode"
+            value="register"
+          >
+
+          <label>
+            Display name
+
+            <input
+              name="name"
+              required
+              maxlength="60"
+              autocomplete="name"
+            >
+          </label>
+
+          <label>
+            Choose a username
+
+            <input
+              name="username"
+              required
+              minlength="3"
+              maxlength="30"
+              autocomplete="username"
+              pattern="[a-z0-9_]{3,30}"
+            >
+          </label>
+
+          <label>
+            Password · at least 12 characters
+
+            <input
+              name="password"
+              type="password"
+              required
+              minlength="12"
+              maxlength="128"
+              autocomplete="new-password"
+            >
+          </label>
+
+          <button>
+            Create account
+          </button>
+
+        </form>
+
+      </details>
+
+    </section>
+
+  </main>
+
+
+{% else %}
+
+  <div class="shell">
+
+    <aside class="sidebar">
+
+      <nav aria-label="Main navigation">
+
+        <a
+          href="{{ url_for('home') }}"
+          class="{{ 'active' if view == 'feed' else '' }}"
+        >
+          News feed
+        </a>
+
+        <a
+          href="{{ url_for('reels') }}"
+          class="{{ 'active' if view == 'reels' else '' }}"
+        >
+          Reels
+        </a>
+
+        <a
+          href="{{ url_for('messages') }}"
+          class="{{ 'active' if view == 'messages' else '' }}"
+        >
+          Messages
+        </a>
+
+        <a
+          href="{{ url_for('spaces') }}"
+          class="{{ 'active' if view in ['spaces', 'space'] else '' }}"
+        >
+          Pages & groups
+        </a>
+
+      </nav>
+
+
+      <div class="card profile">
+
+        <div class="avatar">
+          {{ g.user.name[:1]|upper }}
+        </div>
+
+        <h3>
+          {{ g.user.name }}
+        </h3>
+
+        <small>
+          @{{ g.user.username }}
+        </small>
+
+      </div>
+
+    </aside>
+
+
+    <main>
+
+      {% with messages = get_flashed_messages() %}
+
+        {% for message in messages %}
+
+          <div class="card notice">
+            {{ message }}
+          </div>
+
+        {% endfor %}
+
+      {% endwith %}
+
+
+      {% if view == 'feed' %}
+
+        <section class="card hero">
+
+          <h1>
+            A little closer to your people.
+          </h1>
+
+          <p>
+            Fresh moments, new ideas,
+            and conversations worth having.
+          </p>
+
+        </section>
+
+        {{ composer() }}
+
+
+        {% for post in posts %}
+
+          {{ postcard(post) }}
+
+        {% else %}
+
+          <div class="card empty">
+            Your community starts here.
+            Publish the first post.
+          </div>
+
+        {% endfor %}
+
+
+      {% elif view == 'reels' %}
+
+        <h1>
+          Discover reels
+        </h1>
+
+        <p class="muted">
+          Short videos. Fresh perspectives.
+        </p>
+
+        {{ composer(reel=true) }}
+
+
+        {% for post in posts %}
+
+          {{ postcard(post) }}
+
+        {% else %}
+
+          <div class="card empty">
+            No reels yet.
+            Share the first one.
+          </div>
+
+        {% endfor %}
+
+
+      {% elif view == 'spaces' %}
+
+        <h1>
+          Find your community
+        </h1>
+
+
+        <details class="card">
+
+          <summary>
+            Create a page or group
+          </summary>
+
+          <form
+            action="{{ url_for('create_space') }}"
+            method="post"
+            class="stack"
+          >
+
+            {{ csrf() }}
+
+            <label>
+              Type
+
+              <select name="kind">
+
+                <option value="page">
+                  Page — owner publishes
+                </option>
+
+                <option value="group">
+                  Group — members publish
+                </option>
+
+              </select>
+
+            </label>
+
+
+            <label>
+              Name
+
+              <input
+                name="name"
+                maxlength="80"
+                required
+              >
+            </label>
+
+
+            <label>
+              Description
+
+              <textarea
+                name="description"
+                maxlength="1000"
+              ></textarea>
+
+            </label>
+
+
+            <small>
+              Pages and groups in this version
+              are public to signed-in users.
+            </small>
+
+
+            <button>
+              Create community
+            </button>
+
+          </form>
+
+        </details>
+
+
+        {% for item in spaces %}
+
+          <article class="card">
+
+            <span class="badge">
+              {{ item.kind }}
+            </span>
+
+            <h2>
+
+              <a
+                href="{{ url_for(
+                  'space_detail',
+                  space_id=item.id
+                ) }}"
+              >
+                {{ item.name }}
+              </a>
+
+            </h2>
+
+            <p class="body-text">
+              {{ item.description }}
+            </p>
+
+            <small>
+
+              {{ item.member_count }}
+
+              {{ 'followers'
+                 if item.kind == 'page'
+                 else 'members' }}
+
+              · Managed by {{ item.owner_name }}
+
+            </small>
+
+          </article>
+
+        {% else %}
+
+          <div class="card empty">
+            Create the first page or group.
+          </div>
+
+        {% endfor %}
+
+
+      {% elif view == 'space' %}
+
+        <section class="card">
+
+          <span class="badge">
+            {{ space.kind }}
+          </span>
+
+          <h1>
+            {{ space.name }}
+          </h1>
+
+          <p class="body-text">
+            {{ space.description }}
+          </p>
+
+          <p class="muted">
+
+            {{ membercount }}
+
+            {{ 'followers'
+               if space.kind == 'page'
+               else 'members' }}
+
+            · Public to signed-in users
+
+          </p>
+
+
+          {% if g.user.id != space.owner %}
+
+            <form
+              action="{{ url_for(
+                'membership',
+                space_id=space.id
+              ) }}"
+              method="post"
+            >
+
+              {{ csrf() }}
+
+              <button>
+
+                {% if space.kind == 'page' %}
+
+                  {{
+                    'Unfollow page'
+                    if joined
+                    else 'Follow page'
+                  }}
+
+                {% else %}
+
+                  {{
+                    'Leave group'
+                    if joined
+                    else 'Join group'
+                  }}
+
+                {% endif %}
+
+              </button>
+
+            </form>
+
+          {% endif %}
+
+        </section>
+
+
+        {% if g.user.id == space.owner %}
+
+          <details class="card">
+
+            <summary>
+              Manage {{ space.kind }}
+            </summary>
+
+            <form
+              action="{{ url_for(
+                'manage_space',
+                space_id=space.id
+              ) }}"
+              method="post"
+              class="stack"
+            >
+
+              {{ csrf() }}
+
+              <input
+                type="hidden"
+                name="action"
+                value="update"
+              >
+
+              <label>
+                Name
+
+                <input
+                  name="name"
+                  value="{{ space.name }}"
+                  maxlength="80"
+                  required
+                >
+              </label>
+
+
+              <label>
+                Description
+
+                <textarea
+                  name="description"
+                  maxlength="1000"
+                >{{ space.description }}</textarea>
+
+              </label>
+
+
+              <button>
+                Save changes
+              </button>
+
+            </form>
+
+
+            {% if space.kind == 'group' %}
+
+              <h3>
+                Members
+              </h3>
+
+
+              {% for member in members %}
+
+                <div class="row between">
+
+                  <p>
+                    {{ member.name }}
+                    <small>
+                      @{{ member.username }}
+                    </small>
+                  </p>
+
+
+                  {% if member.id != space.owner %}
+
+                    <form
+                      action="{{ url_for(
+                        'manage_space',
+                        space_id=space.id
+                      ) }}"
+                      method="post"
+                      data-confirm="Remove this member?"
+                    >
+
+                      {{ csrf() }}
+
+                      <input
+                        type="hidden"
+                        name="action"
+                        value="remove"
+                      >
+
+                      <input
+                        type="hidden"
+                        name="userid"
+                        value="{{ member.id }}"
+                      >
+
+                      <button class="danger">
+                        Remove
+                      </button>
+
+                    </form>
+
+                  {% endif %}
+
+                </div>
+
+              {% endfor %}
+
+            {% endif %}
+
+
+            <hr>
+
+
+            <form
+              action="{{ url_for(
+                'manage_space',
+                space_id=space.id
+              ) }}"
+              method="post"
+              data-confirm="Permanently delete this community and all its posts?"
+            >
+
+              {{ csrf() }}
+
+              <input
+                type="hidden"
+                name="action"
+                value="delete"
+              >
+
+              <button class="danger">
+                Delete {{ space.kind }}
+              </button>
+
+            </form>
+
+          </details>
+
+        {% endif %}
+
+
+        {% if canpublish %}
+
+          {{ composer(space_id=space.id) }}
+
+          <details class="card">
+
+            <summary>
+              Publish a reel in this community
+            </summary>
+
+            {{ composer(
+              reel=true,
+              space_id=space.id
+            ) }}
+
+          </details>
+
+        {% endif %}
+
+
+        {% for post in posts %}
+
+          {{ postcard(post) }}
+
+        {% else %}
+
+          <div class="card empty">
+            No posts in this community yet.
+          </div>
+
+        {% endfor %}
+
+
+      {% elif view == 'messages' %}
+
+        <h1>
+          Messages
+        </h1>
+
+
+        <section class="card">
+
+          <form
+            action="{{ url_for('messages') }}"
+            method="get"
+            class="row"
+          >
+
+            <input
+              name="q"
+              value="{{ q }}"
+              maxlength="30"
+              placeholder="Find someone by username"
+              aria-label="Search users by username"
+            >
+
+            <button class="secondary">
+              Find people
+            </button>
+
+          </form>
+
+
+          <div class="people">
+
+            {% for person in people %}
+
+              <a
+                class="person"
+                href="{{ url_for(
+                  'messages',
+                  peer=person.id
+                ) }}"
+              >
+
+                <strong>
+                  {{ person.name }}
+                </strong>
+
+                <small>
+                  @{{ person.username }}
+                </small>
+
+              </a>
+
+            {% else %}
+
+              <p class="muted">
+                No matching users.
+              </p>
+
+            {% endfor %}
+
+          </div>
+
+        </section>
+
+
+        {% if peer %}
+
+          <section
+            class="card"
+            id="chat"
+            data-endpoint="{{ url_for(
+              'read_messages',
+              peer_id=peer.id
+            ) }}"
+          >
+
+            <h2>
+              {{ peer.name }}
+              <small>
+                @{{ peer.username }}
+              </small>
+            </h2>
+
+            <p class="muted">
+              Encrypted storage ·
+              not end-to-end encrypted
+            </p>
+
+
+            <div
+              id="chat-log"
+              class="chat-log"
+              role="log"
+              aria-label="Conversation"
+            ></div>
+
+
+            <p
+              id="chat-status"
+              role="status"
+              class="muted"
+            ></p>
+
+
+            <form
+              id="message-form"
+              action="{{ url_for(
+                'send_message',
+                peer_id=peer.id
+              ) }}"
+              method="post"
+              class="stack"
+            >
+
+              {{ csrf() }}
+
+              <textarea
+                name="text"
+                maxlength="4000"
+                required
+                aria-label="Message"
+                placeholder="Write a message…"
+              ></textarea>
+
+              <button>
+                Send message
+              </button>
+
+            </form>
+
+          </section>
+
+        {% else %}
+
+          <div class="card empty">
+
+            Choose a person to start a conversation.
+
+            To test messaging locally, create another
+            account in a private browser window.
+
+          </div>
+
+        {% endif %}
+
+      {% endif %}
+
+    </main>
+
+
+    <aside class="rightbar">
+
+      <div class="card">
+
+        <span class="badge">
+          Make it yours
+        </span>
+
+        <h3>
+          Better together.
+        </h3>
+
+        <p class="muted">
+          Create a space for your interests,
+          projects, or community.
+        </p>
+
+        <a href="{{ url_for('spaces') }}">
+          Explore communities →
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>
+          A little kindness goes far.
+        </h3>
+
+        <p class="muted">
+          Share thoughtfully.
+          Respect privacy.
+          Be good to each other.
+        </p>
+
+      </div>
+
+      <small>
+        conatct.com · Independent community platform
+      </small>
+
+    </aside>
+
+  </div>
+
+{% endif %}
+
+
+<script nonce="{{ g.nonce }}">
+
+  document
+    .querySelectorAll("form[data-confirm]")
+    .forEach(form => {
+
+      form.addEventListener("submit", event => {
+
+        if (!window.confirm(
+          form.dataset.confirm
+        )) {
+          event.preventDefault();
+        }
+
+      });
+
+    });
+
+
+  // Keep only one video playing at a time.
+
+  const videos = [
+    ...document.querySelectorAll("video")
+  ];
+
+  videos.forEach(video => {
+
+    video.addEventListener("play", () => {
+
+      videos.forEach(other => {
+
+        if (other !== video) {
+          other.pause();
+        }
+
+      });
+
+    });
+
+  });
+
+
+  if ("IntersectionObserver" in window) {
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (
+              !entry.isIntersecting
+            ) {
+              entry.target.pause();
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.15
+        }
+      );
+
+    videos.forEach(video =>
+      observer.observe(video)
+    );
+
+  }
+
+
+  const chat =
+    document.getElementById("chat");
+
+
+  if (chat) {
+
+    const log =
+      document.getElementById("chat-log");
+
+    const status =
+      document.getElementById("chat-status");
+
+    const form =
+      document.getElementById("message-form");
+
+    let latest = -1;
+    let busy = false;
+
+
+    async function refresh() {
+
+      if (busy) {
+        return;
+      }
+
+      busy = true;
+
+      try {
+
+        const response = await fetch(
+          chat.dataset.endpoint,
+          {
+            headers: {
+              Accept: "application/json"
+            },
+            cache: "no-store"
+          }
+        );
+
+
+        if (
+          !response.ok ||
+          response.redirected
+        ) {
+          throw new Error(
+            "Could not refresh messages. " +
+            "You may need to log in again."
+          );
+        }
+
+
+        const messages =
+          await response.json();
+
+
+        const newest =
+          messages.length
+            ? messages[messages.length - 1].id
+            : 0;
+
+
+        if (newest !== latest) {
+
+          const stickToBottom =
+            latest === -1 ||
+            log.scrollHeight -
+              log.scrollTop -
+              log.clientHeight < 100;
+
+
+          latest = newest;
+
+          log.replaceChildren();
+
+
+          for (const message of messages) {
+
+            const bubble =
+              document.createElement("div");
+
+            bubble.className =
+              message.mine
+                ? "bubble mine"
+                : "bubble";
+
+
+            const body =
+              document.createElement("span");
+
+            body.textContent =
+              message.text;
+
+
+            const time =
+              document.createElement("time");
+
+            time.textContent =
+              message.created + " UTC";
+
+
+            bubble.append(
+              body,
+              time
+            );
+
+            log.appendChild(bubble);
+
+          }
+
+
+          if (stickToBottom) {
+            log.scrollTop =
+              log.scrollHeight;
+          }
+
+        }
+
+
+        status.textContent =
+          messages.length
+            ? "Showing the latest 100 messages at most."
+            : "Say hello to start the conversation.";
+
+
+      } catch (error) {
+
+        status.textContent =
+          error.message;
+
+      } finally {
+
+        busy = false;
+
+      }
+
+    }
+
+
+    form.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+
+        const button =
+          form.querySelector("button");
+
+        const textarea =
+          form.querySelector("textarea");
+
+
+        if (!textarea.value.trim()) {
+          return;
+        }
+
+
+        button.disabled = true;
+        textarea.readOnly = true;
+
+
+        try {
+
+          const response =
+            await fetch(
+              form.action,
+              {
+                method: "POST",
+                body: new FormData(form),
+                headers: {
+                  Accept: "application/json"
+                }
+              }
+            );
+
+
+          if (response.redirected) {
+            throw new Error(
+              "Please log in again."
+            );
+          }
+
+
+          const result =
+            await response.json();
+
+
+          if (!response.ok) {
+            throw new Error(
+              result.error ||
+              "Message was not sent."
+            );
+          }
+
+
+          textarea.value = "";
+
+          await refresh();
+
+
+        } catch (error) {
+
+          status.textContent =
+            error.message;
+
+        } finally {
+
+          button.disabled = false;
+          textarea.readOnly = false;
+          textarea.focus();
+
+        }
+
+      }
+    );
+
+
+    refresh();
+
+
+    setInterval(() => {
+
+      if (!document.hidden) {
+        refresh();
+      }
+
+    }, 3000);
+
+  }
+
+</script>
+
+</body>
+</html>
